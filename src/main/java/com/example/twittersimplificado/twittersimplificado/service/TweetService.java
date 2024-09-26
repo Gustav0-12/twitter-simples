@@ -55,4 +55,15 @@ public class TweetService {
         repository.save(newTweet);
         return new TweetResponseDTO(newTweet.getId(), newTweet.getContent(),newTweet.getCreationTime(), user.getName());
     }
+
+     public Tweets updateTweet(Long id, TweetDTO data) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Tweets tweet = repository.findById(id).orElseThrow(() -> new ResourceNotFound("Tweet não encontrado"));
+
+        verifyUserAuthorization(tweet, user);
+
+        tweet.setContent(data.getContent());
+        tweet.setCreationTime(Instant.now());
+        return repository.save(tweet);
+    }
 }
