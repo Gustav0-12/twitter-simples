@@ -59,5 +59,6 @@ mvn spring-boot:run
 ### PATCH /api/users/password/{id}: Alterar senha de usúario. (autenticado)
 ### GET  /api/tweets: Lista todos os tweets. (autenticado).
 ### POST /api/tweets/criar: Cria um novo tweet (autenticado).
+### PATCH /api/tweets/update/{id}: Atualiza um tweet(autenticado)
 ### DELETE /api/tweets/{id}: Exclui um tweet específico (autenticado).
 
