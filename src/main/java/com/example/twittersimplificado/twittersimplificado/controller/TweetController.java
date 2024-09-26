@@ -39,4 +39,10 @@ public class TweetController {
        TweetResponseDTO tweet = tweetService.createTweet(data);
         return ResponseEntity.ok(tweet);
     }
+
+    @PatchMapping("/update/{id}")
+    public ResponseEntity<Void> updateTweet(@PathVariable Long id, @RequestBody TweetDTO data) {
+        Tweets tweet = tweetService.updateTweet(id, data);
+        return ResponseEntity.noContent().build();
+    }
 }
