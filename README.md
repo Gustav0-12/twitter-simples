@@ -53,12 +53,43 @@ mvn spring-boot:run
 ### 4. Endpoints principais
 
 ### POST /auth/register: Registra um novo usuário.
+``` json
+{
+    "name":"nome",
+    "email":"email@example.com",
+    "password":"senha",
+    "userType":"ADMIN/COMMON"
+}
+```
 ### POST /auth/login: Autentica um usuário e retorna um token JWT.
+``` json
+{
+    "email":"email@example.com",
+    "password":"senha"
+}
+```
 ### GET  /api/users: Lista todos os usúarios(apenas admin).
 ### GET  /api/users/{id}: Lista um usúario específico (apenas admin).
 ### PATCH /api/users/password/{id}: Alterar senha de usúario. (autenticado)
+``` json
+{
+    "oldPassword":"123",
+    "newPassword":"1234",
+    "confirmationPassword":"1234"
+}
+```
 ### GET  /api/tweets: Lista todos os tweets. (autenticado).
 ### POST /api/tweets/criar: Cria um novo tweet (autenticado).
+``` json
+{
+    "content":"example"
+}
+```
 ### PATCH /api/tweets/update/{id}: Atualiza um tweet(autenticado)
+``` json
+{
+    "content":"example!"
+}
+```
 ### DELETE /api/tweets/{id}: Exclui um tweet específico (autenticado).
 
